@@ -2,6 +2,9 @@
   "name": "apicollaborators",
   "version": "1.0.0",
   "description": "The API from Collaborators Project",
+  "engines": {
+    "node": "10.14.2"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
