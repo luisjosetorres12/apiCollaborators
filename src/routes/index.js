@@ -4,7 +4,7 @@ const helmet = require('helmet')
 const compression = require('compression')
 require('express-async-errors')
 const ErrorMiddleware = require('./../middlewares/error.middleware')
-module.exports = function({UserRoutes,AuthRoutes}){
+module.exports = function({UserRoutes,AuthRoutes,StatusRoutes,MoneyTypeRoutes,TypeOrderRoutes,OrderRoutes}){
   const router = express.Router()
   const apiRouter = express.Router()
 
@@ -17,6 +17,10 @@ module.exports = function({UserRoutes,AuthRoutes}){
 
   apiRouter.use("/user",UserRoutes)
   apiRouter.use("/auth",AuthRoutes)
+  apiRouter.use("/status",StatusRoutes)
+  apiRouter.use("/moneyType",MoneyTypeRoutes)
+  apiRouter.use("/typeOrder",TypeOrderRoutes)
+  apiRouter.use("/order",OrderRoutes)
   apiRouter.get("/",(req,res)=>{
     res.send({
       message:"Hola"

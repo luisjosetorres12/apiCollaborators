@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "start":"node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -39,5 +39,8 @@
     "mockingoose": "^2.13.2",
     "mongoose": "^5.9.11",
     "mongoose-autopopulate": "^0.12.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }

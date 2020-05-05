@@ -7,19 +7,19 @@ const app = require('./server')
 const container = createContainer()
 
 //Models
-const {UserModel} = require('./../models')
+const {UserModel,MoneyType,Status,TypeOrder,Order,Item} = require('./../models')
 
 //Repositories
-const {UserRepository} = require('./../repositories/index')
+const {UserRepository,StatusRepository,MoneyTypeRepository,TypeOrderRepository,OrderRepository} = require('./../repositories/index')
 
 //Services
-const {UserService,AuthService} = require('./../services')
+const {UserService,AuthService,TypeOrderService,StatusService,MoneyTypeService,OrderService} = require('./../services')
 
 //Controllers
-const {UserController,AuthController} = require('./../controllers')
+const {UserController,AuthController,StatusController,MoneyTypeController,TypeOrderController,OrderController} = require('./../controllers')
 
 //Routes
-const {UserRoutes,AuthRoutes} = require('./../routes/index.routes')
+const {UserRoutes,AuthRoutes,StatusRoutes,MoneyTypeRoutes,TypeOrderRoutes,OrderRoutes} = require('./../routes/index.routes')
 
 container
 .register({
@@ -28,22 +28,43 @@ container
   app: asClass(app).singleton()
 })
 .register({
-  UserModel:asValue(UserModel)
+  UserModel:asValue(UserModel),
+  MoneyType:asValue(MoneyType),
+  Status: asValue(Status),
+  TypeOrder: asValue(TypeOrder),
+  Order: asValue(Order),
+  Item: asValue(Item)
 })
 .register({
-  UserRepository: asClass(UserRepository).singleton()
+  UserRepository: asClass(UserRepository).singleton(),
+  StatusRepository: asClass(StatusRepository).singleton(),
+  MoneyTypeRepository: asClass(MoneyTypeRepository).singleton(),
+  TypeOrderRepository: asClass(TypeOrderRepository).singleton(),
+  OrderRepository: asClass(OrderRepository).singleton()
 })
 .register({
   UserService: asClass(UserService).singleton(),
-  AuthService: asClass(AuthService).singleton()
+  AuthService: asClass(AuthService).singleton(),
+  TypeOrderService: asClass(TypeOrderService).singleton(),
+  MoneyTypeService: asClass(MoneyTypeService).singleton(),
+  StatusService: asClass(StatusService).singleton(),
+  OrderService: asClass(OrderService).singleton()
 })
 .register({
   UserController: asClass(UserController.bind(UserController)).singleton(),
-  AuthController: asClass(AuthController.bind(AuthController)).singleton()
+  AuthController: asClass(AuthController.bind(AuthController)).singleton(),
+  StatusController: asClass(StatusController.bind(StatusController)).singleton(),
+  MoneyTypeController: asClass(MoneyTypeController.bind(MoneyTypeController)).singleton(),
+  TypeOrderController: asClass(TypeOrderController.bind(TypeOrderController)).singleton(),
+  OrderController: asClass(OrderController.bind(OrderController)).singleton()
 })
 .register({
   UserRoutes: asFunction(UserRoutes).singleton(),
-  AuthRoutes: asFunction(AuthRoutes).singleton()
+  AuthRoutes: asFunction(AuthRoutes).singleton(),
+  StatusRoutes: asFunction(StatusRoutes).singleton(),
+  MoneyTypeRoutes: asFunction(MoneyTypeRoutes).singleton(),
+  TypeOrderRoutes: asFunction(TypeOrderRoutes).singleton(),
+  OrderRoutes: asFunction(OrderRoutes).singleton()
 })
 
 module.exports = container

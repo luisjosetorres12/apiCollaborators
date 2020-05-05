@@ -14,7 +14,6 @@ class BaseRepository {
         message:'Usuario no encontrado'
       }
     }
-    
   }
 
   async getAll(pageSize = 5,pageNumber = 1) {
