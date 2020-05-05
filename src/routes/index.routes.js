@@ -4,5 +4,6 @@ module.exports = {
   StatusRoutes: require('./status.routes'),
   MoneyTypeRoutes: require('./moneyType.routes'),
   TypeOrderRoutes: require('./typeOrder.routes'),
-  OrderRoutes: require('./order.routes')
+  OrderRoutes: require('./order.routes'),
+  ItemRoutes: require('./item.routes')
 }

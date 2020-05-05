@@ -3,5 +3,6 @@ module.exports = {
   StatusRepository: require('./status.repository'),
   MoneyTypeRepository: require('./moneyType.repository'),
   TypeOrderRepository: require('./typeOrder.repository'),
-  OrderRepository: require('./order.repository')
+  OrderRepository: require('./order.repository'),
+  ItemRepository: require('./items.repository')
 }

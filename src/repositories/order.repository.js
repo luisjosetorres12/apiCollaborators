@@ -9,7 +9,7 @@ class OrderRepository extends BaseRepository{
 
   async getUserByUserName(type){
     console.log(type.type)
-    return await _order.findOne({type:type.type})
+    return await _order.find({type:type.type})
   }
 }
 

@@ -4,5 +4,6 @@ module.exports = {
   StatusController: require('./status.controller'),
   MoneyTypeController: require('./moneyType.controller'),
   TypeOrderController: require('./typeOrder.controller'),
-  OrderController: require('./order.controller')
+  OrderController: require('./order.controller'),
+  ItemController: require('./item.controller')
 }
