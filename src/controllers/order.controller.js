@@ -21,13 +21,13 @@ class OrderController{
     const {body} = req
     const {userId} = req.params
     const orderUpdated = await _orderService.update(userId,body)
-    res.send(orderUpdated)
+    return res.send(orderUpdated)
   }
 
   async delete(req,res){
     const {userId} = req.params
     const orderDeleted = await _orderService.delete(userId)
-    res.send(orderDeleted)
+    return res.send(orderDeleted)
   }
 
   async create(req,res){
@@ -38,9 +38,14 @@ class OrderController{
 
   async getUserByUserName(req,res){
     const {body} = req
-    console.log("Lo lograste krnal")
     const orders = await _orderService.getUserByUserName(body)
-    res.send(orders)
+    return res.send(orders)
+  }
+
+  async getMyOrders(req,res){
+    const {userId} =req.body
+    const orders = await _orderService.getMyOrders(userId)
+    return res.send(orders)
   }
 
 }

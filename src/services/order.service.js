@@ -9,6 +9,17 @@ class UserService extends BaseService {
   async getUserByUserName(typeId){
     return await _orderRepository.getUserByUserName(typeId)
   }
+
+  async getMyOrders(id){
+    if(!id){
+      const error = new Error()
+      error.message = "Id must be send"
+      error.status = 404
+      throw error
+    }
+    const orders = await _orderRepository.getMyOrders(id)
+    return orders
+  }
 }
 
 
