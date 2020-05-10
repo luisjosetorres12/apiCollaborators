@@ -24,7 +24,7 @@ class ItemService extends BaseService{
       error.status = 404
       throw error
     }
-
+    item.status = "5eaf540c94155e6fbb944aa8"
     let itemCreated = await _itemRepository.create(item)
     order.items.push(itemCreated)
     return await _orderRepository.update(orderId,{items:order.items})

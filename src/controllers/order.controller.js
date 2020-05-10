@@ -19,20 +19,21 @@ class OrderController{
 
   async update(req,res){
     const {body} = req
-    const {userId} = req.params
-    const orderUpdated = await _orderService.update(userId,body)
+    const {id} = req.user
+    const orderUpdated = await _orderService.validateUpdatePermissions(id,body)
     return res.send(orderUpdated)
   }
 
   async delete(req,res){
-    const {userId} = req.params
-    const orderDeleted = await _orderService.delete(userId)
+    const {id} = req.user
+    const {body} = req
+    const orderDeleted = await _orderService.delete(id,body)
     return res.send(orderDeleted)
   }
 
   async create(req,res){
     const {body} = req
-    const orderCreated = await _orderService.create(body)
+    const orderCreated = await _orderService.createOrders(body)
     return res.status(201).send(orderCreated)
   }
 

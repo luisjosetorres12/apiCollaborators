@@ -14,6 +14,10 @@ class OrderRepository extends BaseRepository{
   async getMyOrders(userId){
     return await _order.find({author:userId})
   }
+
+  async createOrders(order){
+    return await _order.create(order)
+  }
 }
 
 module.exports = OrderRepository
