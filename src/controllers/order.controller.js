@@ -1,5 +1,6 @@
 let _orderService = null
-
+const sendEmailHelder = require('./../helpers/sendEmail')
+const sendEmail = new sendEmailHelder()
 class OrderController{
   constructor({OrderService}){
     _orderService = OrderService
@@ -33,7 +34,9 @@ class OrderController{
 
   async create(req,res){
     const {body} = req
+    console.log(body)
     const orderCreated = await _orderService.createOrders(body)
+    await sendEmail.associateToOrder()
     return res.status(201).send(orderCreated)
   }
 

@@ -38,7 +38,8 @@
     "memory-cache": "^0.2.0",
     "mockingoose": "^2.13.2",
     "mongoose": "^5.9.11",
-    "mongoose-autopopulate": "^0.12.2"
+    "mongoose-autopopulate": "^0.12.2",
+    "nodemailer": "^6.4.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

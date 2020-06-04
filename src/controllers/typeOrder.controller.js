@@ -13,6 +13,7 @@ class TypeOrderController{
   }
 
   async getAll(req,res){
+    console.log('Llegue aca')
     const typeOrders =  await _typeOrderService.getAll()
     return res.send(typeOrders)
   }

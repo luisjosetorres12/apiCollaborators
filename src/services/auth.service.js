@@ -1,4 +1,4 @@
-const {JWTHelper} = require('./../helpers')
+const {JWTHelper,SendEmail} = require('./../helpers')
 let _userService = null
 
 class AuthService {
@@ -22,7 +22,12 @@ class AuthService {
       throw error
     }
 
-    return await _userService.create(user)
+    const createdUser =  await _userService.create(user)
+    if(createdUser){
+      const email = new SendEmail()
+      await email.associateToOrder()
+      return createdUser
+    }
   }
 
   async signIn(user){

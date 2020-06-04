@@ -8,7 +8,7 @@ class ItemService extends BaseService{
     _itemRepository = ItemRepository
   }
 
-  async createItem(item,orderId){
+  async createItem(items,orderId){
     if(!orderId){
       const error = new Error()
       error.message = "Order Id must be send"
@@ -24,9 +24,13 @@ class ItemService extends BaseService{
       error.status = 404
       throw error
     }
-    item.status = "5eaf540c94155e6fbb944aa8"
-    let itemCreated = await _itemRepository.create(item)
-    order.items.push(itemCreated)
+    for(let i=0; i<items.length;i++){
+      let item = items[i]
+      item.moneyType = item.moneyType._id
+      item.status = "5eaf540c94155e6fbb944aa8"
+      let itemCreated = await _itemRepository.create(item)
+      order.items.push(itemCreated)
+    }
     return await _orderRepository.update(orderId,{items:order.items})
   }
 
