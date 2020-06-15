@@ -5,7 +5,8 @@ module.exports = function({OrderController}){
 
   router.get("/",AuthMiddleware,OrderController.getAll)
   router.get('/type',AuthMiddleware,OrderController.getUserByUserName)
-  router.get('/myOrders',AuthMiddleware,OrderController.getMyOrders)
+  router.get('/myOrders/:id',AuthMiddleware,OrderController.getMyOrders)
+  router.get('/iCollaborate/:id',AuthMiddleware,OrderController.getOrdersCollaborate)
   router.get("/:id",AuthMiddleware,OrderController.getById)
   router.put("/:id",AuthMiddleware,OrderController.update)
   router.post("/",AuthMiddleware,OrderController.create)

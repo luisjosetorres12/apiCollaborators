@@ -47,11 +47,17 @@ class OrderController{
   }
 
   async getMyOrders(req,res){
-    const {userId} =req.body
-    const orders = await _orderService.getMyOrders(userId)
+    const {id} = req.params
+    console.log(id)
+    const orders = await _orderService.getMyOrders(id)
     return res.send(orders)
   }
 
+  async getOrdersCollaborate(req,res){
+    const {id} = req.params
+    const orders = await _orderService.getOrdersCollaborate(id)
+    return res.send(orders)
+  }
 }
 
 module.exports = OrderController

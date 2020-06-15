@@ -21,6 +21,17 @@ class UserService extends BaseService {
     return orders
   }
 
+  async getOrdersCollaborate(id){
+    if(!id){
+      const error = new Error()
+      error.message = "Id must be send"
+      error.status = 404
+      throw error
+    }
+    const orders = await _orderRepository.getOrdersCollaborate(id)
+    return orders
+  }
+
   async createOrders(order){
     order.status = "5eaf540c94155e6fbb944aa8"
     return await _orderRepository.createOrders(order)
