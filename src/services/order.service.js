@@ -1,9 +1,10 @@
 const BaseService = require('./base.service')
 let _orderRepository = null
-class UserService extends BaseService {
+class OrderService extends BaseService {
   constructor({OrderRepository}){
     super(OrderRepository)
     _orderRepository = OrderRepository
+
   }
 
   async getUserByUserName(typeId){
@@ -54,7 +55,8 @@ class UserService extends BaseService {
 
     return await _orderRepository.update(order)
   }
+
 }
 
 
-module.exports = UserService
+module.exports = OrderService

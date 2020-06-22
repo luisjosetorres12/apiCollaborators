@@ -36,6 +36,13 @@ class ItemController{
     return res.send(itemDeleted)
   }
 
+  async finishOrderAndItems(req,res){
+    const {orderId} = req.params
+    console.log('LLegaste al finish')
+    const order = await _itemService.finishOrderAndItems(orderId)
+    return res.send(order)
+  }
+
 }
 
 

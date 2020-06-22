@@ -11,7 +11,7 @@ class BaseRepository {
     } catch (error) {
       return {
         error: error,
-        message:'Usuario no encontrado'
+        message:'Elemento no encontrado'
       }
     }
   }

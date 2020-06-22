@@ -58,6 +58,7 @@ class OrderController{
     const orders = await _orderService.getOrdersCollaborate(id)
     return res.send(orders)
   }
+
 }
 
 module.exports = OrderController

@@ -7,6 +7,7 @@ module.exports = function({ItemController}){
   router.get("/:id",AuthMiddleware,ItemController.get)
   router.get("/",AuthMiddleware,ItemController.getAll)
   router.put("/:id",AuthMiddleware,ItemController.update)
+  router.put("/finish/:orderId",AuthMiddleware,ItemController.finishOrderAndItems)
   router.post("/:orderId",AuthMiddleware,ItemController.create)
   router.delete("/:id",AuthMiddleware,ItemController.delete)
 

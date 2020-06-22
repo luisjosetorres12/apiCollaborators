@@ -34,6 +34,26 @@ class ItemService extends BaseService{
     return await _orderRepository.update(orderId,{items:order.items})
   }
 
+  async finishOrderAndItems(orderId){
+    console.log(orderId)
+    if(orderId == null){
+      const error = new Error()
+      error.message = "OrderID must be send"
+      error.status = 500
+      throw error
+    }
+
+    let order = await _orderRepository.get(orderId)
+    for (let i = 0; i < order.items.length; i++) {
+      const item = order.items[i];
+      let itemUpdated = await _itemRepository.update(item.id, {status:'5eaf549194155e6fbb944aaa'})
+    }
+    
+    order = await _orderRepository.update(orderId,{status:'5eaf549194155e6fbb944aaa'})
+    return order
+
+  }
+
 }
 
 module.exports = ItemService
