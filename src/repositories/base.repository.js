@@ -18,9 +18,12 @@ class BaseRepository {
 
   async getAll(pageSize = 5,pageNumber = 1) {
     const skips = pageSize * (pageNumber - 1)
-    return await this.model.find()
+    let response = {}
+    response.data = await this.model.find()
     .skip(skips)
     .limit(pageSize)
+    response.total = await this.model.count()
+    return response
   }
 
   async create(entity){

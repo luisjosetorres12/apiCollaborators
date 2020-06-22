@@ -48,14 +48,15 @@ class OrderController{
 
   async getMyOrders(req,res){
     const {id} = req.params
-    console.log(id)
-    const orders = await _orderService.getMyOrders(id)
+    const {pageNumber} = req.query
+    const orders = await _orderService.getMyOrders(id,pageNumber)
     return res.send(orders)
   }
 
   async getOrdersCollaborate(req,res){
     const {id} = req.params
-    const orders = await _orderService.getOrdersCollaborate(id)
+    const {pageNumber} = req.query
+    const orders = await _orderService.getOrdersCollaborate(id, parseInt(pageNumber))
     return res.send(orders)
   }
 

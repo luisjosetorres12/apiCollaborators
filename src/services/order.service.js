@@ -11,25 +11,25 @@ class OrderService extends BaseService {
     return await _orderRepository.getUserByUserName(typeId)
   }
 
-  async getMyOrders(id){
+  async getMyOrders(id,pageNumber=1){
     if(!id){
       const error = new Error()
       error.message = "Id must be send"
       error.status = 404
       throw error
     }
-    const orders = await _orderRepository.getMyOrders(id)
+    const orders = await _orderRepository.getMyOrders(id,5,pageNumber)
     return orders
   }
 
-  async getOrdersCollaborate(id){
+  async getOrdersCollaborate(id,pageNumber=1){
     if(!id){
       const error = new Error()
       error.message = "Id must be send"
       error.status = 404
       throw error
     }
-    const orders = await _orderRepository.getOrdersCollaborate(id)
+    const orders = await _orderRepository.getOrdersCollaborate(id,5,pageNumber)
     return orders
   }
 
